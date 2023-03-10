@@ -10,3 +10,4 @@ Estudos de Ciência e Análise de Dados hands on, através de projetos de cursos
 - Google Sheets
 - Python
 - Pandas
+- WebCrawling
