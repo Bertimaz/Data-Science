@@ -1,6 +1,6 @@
 [WIP]
 
-
+Dashboard no Power BI: https://app.powerbi.com/view?r=eyJrIjoiYmFiYTcwMzUtNDFiNS00NDAwLThlYzUtOTg5ZWI4ODNhYzdjIiwidCI6IjYzYTNiY2VhLTk1ZWEtNDVlZC05YWE4LTA1Yjk3ZDkwODM2MCJ9
 
 
 A sua empresa de telecomunicações onde você trabalha anunciou a aquisição da TELCO. TELCO é uma empresa jovem e com muito potencial, cujas filiais estão localizadas em 1.106 cidades do estado da Califórnia, Estados Unidos.
