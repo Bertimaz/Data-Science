@@ -5,7 +5,7 @@ Você é um analista de dados júnior que trabalha para uma startup que oferece 
 Qual seriam os próximos passos: Investir pesado em **marketing** e crescer a base de usuários ou investir em **product development** e melhorar o produto.
 
 
-## Skills/Tools**:
+## Skills/Tools:
 - Google Colab
 - Python
 - Pandas
