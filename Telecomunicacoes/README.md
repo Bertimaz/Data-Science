@@ -16,7 +16,7 @@ Obter  o Cluster de clientes de “Alto risco de abandono e de alto retorno fina
   
  # Resolução
 
--[Dashboard no Power BI](https://app.powerbi.com/view?r=eyJrIjoiYmFiYTcwMzUtNDFiNS00NDAwLThlYzUtOTg5ZWI4ODNhYzdjIiwidCI6IjYzYTNiY2VhLTk1ZWEtNDVlZC05YWE4LTA1Yjk3ZDkwODM2MCJ9)
+- [Dashboard no Power BI](https://app.powerbi.com/view?r=eyJrIjoiYmFiYTcwMzUtNDFiNS00NDAwLThlYzUtOTg5ZWI4ODNhYzdjIiwidCI6IjYzYTNiY2VhLTk1ZWEtNDVlZC05YWE4LTA1Yjk3ZDkwODM2MCJ9)
 
 ## 1. Entendendo os dados
 As seguintes tabelas foram fornecidas:
@@ -30,7 +30,7 @@ As seguintes tabelas foram fornecidas:
 ### Unificando em uma única tabela
 
 
-'''
+```
 CREATE TABLE  `perda-de-clientes.churn.master_view` as (
 SELECT l.* EXCEPT(Zip_Code),
 d.Gender,d.Age, d.Under_30, d.Senior_Citizen,d.Married,d.Number_of_Dependents, s.*EXCEPT (Customer_ID, Count),
@@ -42,68 +42,69 @@ LEFT JOIN perda-de-clientes.churn.Services as s
 ON d.Customer_ID=s.Customer_ID
 LEFT JOIN perda-de-clientes.churn.status as st
 ON s.Customer_ID=st.Customer_ID)
-'''
+```
 
 ### Explorando os dados
 - Número de Registros: 7043
-'''
+
+```
 SELECT COUNT(Customer_ID) FROM `perda-de-clientes.churn.master_view` ;
 
-'''
-
+```
 - Explorar idade dos usuários:
-'''
+
+```
 SELECT 
 AVG(Age) AS idade_media,  #Resultado: 47,5
 MIN(Age) as idade_minima, #Resultado: 19
 MAX(Age) as idade_maxima  #Resultado: 119
 from `perda-de-clientes.churn.master_view` ;
-'''
+```
 - Número de Clientes por sexo:
 F - 638	
 Male - 2918
 Female - 2850
 M - 637
-'''
+```
 SELECT DISTINCT Gender,
 COUNT(Customer_ID) AS clientes_totais
 FROM `perda-de-clientes.churn.master_view`
 GROUP BY
 1;
-'''
+```
 - Explorar pagamentos mensais
-'''
+```
 SELECT 
 AVG(Monthly_Charge) AS pagamento_medio,   #Resultado: $63,6
 MIN(Monthly_Charge) AS pagamento_minimo,  #Resultado: -$10.00
 MAX(Monthly_Charge) AS pagamento_maximo   #Resultado: $118,75
 FROM `perda-de-clientes.churn.master_view`;
-'''
+```
 - Explorar Receita por trimestre por cliente
-'''
+```
 SELECT 
 AVG(Total_Revenue) AS receita_media,    #Resultado: $3034,40
 MIN(Total_Revenue) AS receita_minima,   #Resultado: $21,36
 MAX(Total_Revenue) AS receita_maxima    #Resultado: 11979,34
 FROM `perda-de-clientes.churn.master_view`;
-'''
+```
 - Explorar estado civil		
 Solteiros: 3641
 Casados: 3402
-'''
+```
 SELECT DISTINCT Married,
 COUNT(Customer_ID) AS clientes_totais
 FROM `perda-de-clientes.churn.master_view`
 GROUP BY
 1;
-'''
+```
 - Explorar cidades com maior número de clientes
 Los Angeles: 293
 San Diego: 285
 San Jose: 112	
 Sacramento: 108
 San Francisco: 104
-'''
+```
 SELECT DISTINCT City,
 COUNT(Customer_ID) AS clientes_totais
 FROM `perda-de-clientes.churn.master_view`
@@ -111,10 +112,10 @@ GROUP BY
 City
 ORDER BY clientes_totais DESC
 LIMIT 5
-'''
+```
 ### Limpeza da tabela
 Apagar registros com idade maior que 95, com monthly charges menor que 0 e unificar sexo em Male e Female
-'''
+```
 DELETE  FROM `perda-de-clientes.churn.master_view_limpa` WHERE Age>95;
 DELETE  FROM `perda-de-clientes.churn.master_view_limpa` WHERE Monthly_Charge<0;
 
@@ -125,10 +126,10 @@ WHERE Gender = "M";
 UPDATE `perda-de-clientes.churn.master_view_limpa`
 SET Gender = 'Female'
 WHERE Gender = "F";
-'''
-##2. Segmentação de Clientes:
+```
+## 2. Segmentação de Clientes:
 Segmentação dos clientes por idade, por número de indicações e por tempo de serviço.
-- Idade - 
+- Idade
 
 [WIP]
 
