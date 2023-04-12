@@ -1,4 +1,4 @@
-#O Desafio
+# O Desafio
 
 A sua empresa de telecomunicações onde você trabalha anunciou a aquisição da TELCO. TELCO é uma empresa jovem e com muito potencial, cujas filiais estão localizadas em 1.106 cidades do estado da Califórnia, Estados Unidos.
 
@@ -7,18 +7,18 @@ O objetivo é avaliar desafios em termos de perdas de cliente da TELCO. Atualmen
 O desafio consiste em validar ou não essa hipótese, através da exploração do banco de dados e contrato atuais e passados.
 Obter  o Cluster de clientes de “Alto risco de abandono e de alto retorno financeiro".
 
-##Skills/Tools:
+## Skills/Tools:
   -Power BI
   -Google Cloud
   -SQL
   -Análise de Dados
   -Decisões de Negócios apoiadas por dados
   
- #Resolução
+ # Resolução
 
 -[Dashboard no Power BI](https://app.powerbi.com/view?r=eyJrIjoiYmFiYTcwMzUtNDFiNS00NDAwLThlYzUtOTg5ZWI4ODNhYzdjIiwidCI6IjYzYTNiY2VhLTk1ZWEtNDVlZC05YWE4LTA1Yjk3ZDkwODM2MCJ9)
 
-##1. Entendendo os dados
+## 1. Entendendo os dados
 As seguintes tabelas foram fornecidas:
 -*Services*: Informações dos serviços contratatos pelo cliente, assim como os valores pagos mensalmentes, cobranças extras, e indicações de clientes.
 -**Churn_demographics**: Informações sobre o cliente como gênero, idade, estado civil e número de filhos.
@@ -26,7 +26,7 @@ As seguintes tabelas foram fornecidas:
 -**population**: Informações sobre a população de cada cidade
 -**status**: Informações sobre a perda de clientes, status atual do cliente e motivo de cancelamento.
 
-##1. Preparando os dados
+## 2. Preparando os dados
 ### Unificando em uma única tabela
 
 
@@ -44,7 +44,7 @@ LEFT JOIN perda-de-clientes.churn.status as st
 ON s.Customer_ID=st.Customer_ID)
 '''
 
-###Explorando os dados
+### Explorando os dados
 - Número de Registros: 7043
 '''
 SELECT COUNT(Customer_ID) FROM `perda-de-clientes.churn.master_view` ;
@@ -72,11 +72,6 @@ GROUP BY
 1;
 '''
 - Explorar pagamentos mensais
-63.5961309101235
-	
--10.0
-	
-118.75
 '''
 SELECT 
 AVG(Monthly_Charge) AS pagamento_medio,   #Resultado: $63,6
