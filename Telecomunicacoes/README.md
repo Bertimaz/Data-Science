@@ -8,11 +8,11 @@ O desafio consiste em validar ou não essa hipótese, através da exploração d
 Obter  o Cluster de clientes de “Alto risco de abandono e de alto retorno financeiro".
 
 ## Skills/Tools:
-  -Power BI
-  -Google Cloud
-  -SQL
-  -Análise de Dados
-  -Decisões de Negócios apoiadas por dados
+  - Power BI
+  - Google Cloud
+  - SQL
+  - Análise de Dados
+  - Decisões de Negócios apoiadas por dados
   
  # Resolução
 
@@ -20,11 +20,11 @@ Obter  o Cluster de clientes de “Alto risco de abandono e de alto retorno fina
 
 ## 1. Entendendo os dados
 As seguintes tabelas foram fornecidas:
--*Services*: Informações dos serviços contratatos pelo cliente, assim como os valores pagos mensalmentes, cobranças extras, e indicações de clientes.
--**Churn_demographics**: Informações sobre o cliente como gênero, idade, estado civil e número de filhos.
--**location**: Informações geograficos sobre o cliente.
--**population**: Informações sobre a população de cada cidade
--**status**: Informações sobre a perda de clientes, status atual do cliente e motivo de cancelamento.
+- **Services**: Informações dos serviços contratatos pelo cliente, assim como os valores pagos mensalmentes, cobranças extras, e indicações de clientes.
+- **Churn_demographics**: Informações sobre o cliente como gênero, idade, estado civil e número de filhos.
+- **location**: Informações geograficos sobre o cliente.
+- **population**: Informações sobre a população de cada cidade
+- **status**: Informações sobre a perda de clientes, status atual do cliente e motivo de cancelamento.
 
 ## 2. Preparando os dados
 ### Unificando em uma única tabela
