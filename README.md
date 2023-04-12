@@ -11,3 +11,4 @@ Estudos de Ciência e Análise de Dados hands on, através de projetos de cursos
 - Python
 - Pandas
 - WebCrawling
+- Power BI
