@@ -28,8 +28,6 @@ As seguintes tabelas foram fornecidas:
 
 ## 2. Preparando os dados
 ### Unificando em uma única tabela
-
-
 ```
 CREATE TABLE  `perda-de-clientes.churn.master_view` as (
 SELECT l.* EXCEPT(Zip_Code),
@@ -128,8 +126,139 @@ SET Gender = 'Female'
 WHERE Gender = "F";
 ```
 ## 2. Segmentação de Clientes:
-Segmentação dos clientes por idade, por número de indicações e por tempo de serviço.
+Segmentação dos clientes por idade, por número de indicações, por número de dependentes, e por tempo de serviço.
 - Idade
+```
+WITH
+  tabela AS (
+  SELECT
+    *,
+    CASE
+	 WHEN Age < 41 THEN '19 a 40 anos'
+    WHEN Age BETWEEN 41 AND 60 THEN '41 a 60' 
+    ELSE 'Mais de 60 anos'
+  END
+    AS range_age
+  FROM
+    `perda-de-clientes.churn.master_view_limpa` )
+SELECT
+Customer_ID,
+  City,
+  Gender,
+  Married,
+  Number_of_Dependents,
+  range_age,
+  
+FROM
+  tabela
+```
+- Número de indicações:
+```
+WITH
+  tabela AS (
+  SELECT
+    *,
+    CASE
+    WHEN Number_of_Referrals=0 THEN '0 referências'
+	  WHEN Number_of_Referrals BETWEeN 1 and 4 THEN '1 a 4 referências'
+    WHEN Number_of_Referrals BETWEeN 5 and 8 THEN '5 a 8 referências'
+    ELSE 'Mais de 8 referências'
+  END
+    AS range_referrals
+  FROM
+    `perda-de-clientes.churn.master_view_limpa` )
+SELECT
+Customer_ID,
+range_referrals
+   
+FROM
+  tabela
+```
+- Número de Dependentes
+```
+WITH
+  tabela AS (
+  SELECT
+    *,
+    CASE
+    WHEN Number_of_Dependents=0 THEN '0 dependentes'
+	  WHEN Number_of_Dependents BETWEeN 1 and 4 THEN '1 a 4 dependentes'
+    WHEN Number_of_Dependents BETWEeN 5 and 8 THEN '5 a 8 dependentes'
+    ELSE 'Mais de 8 referências'
+  END
+    AS range_dependents
+  FROM
+    `perda-de-clientes.churn.master_view_limpa` )
+SELECT
+Customer_ID,
+range_dependents
+
+FROM
+  tabela
+```
+- Tempo de Serviço
+```
+WITH
+  tabela AS (
+  SELECT
+    *,
+    CASE
+    WHEN Tenure_in_Months BETWEEN 0 AND 12 THEN 'Até 1 ano'
+	  WHEN Tenure_in_Months BETWEEN 13 AND 24 THEN '1 a 2'
+    WHEN Tenure_in_Months BETWEEN 25 AND 36 THEN '2 a 3'
+    WHEN Tenure_in_Months BETWEEN 37 AND 48 THEN '3 a 4'
+    WHEN Tenure_in_Months BETWEEN 49 AND 62 THEN '4 a 5'
+    WHEN Tenure_in_Months >62 THEN '5 ou mais'
+  END
+    AS range_tenure_year
+  FROM
+    `perda-de-clientes.churn.master_view_limpa` )
+SELECT
+Customer_ID,
+range_tenure_year,
+Tenure_in_Months
+  
+  
+FROM
+  tabela
+```
+## 3 Segmentar Grupos de Risco
+O churn rate total é 26,7% e pela exploração dos dados chegamos a seguinte segmentação de risco:
+    Grupo 1: Contrato mes-a-mes e idade > 64                                        # churn: 82,2%
+    Grupo 2: Idade < 64 e número de referências < 2                                 # churn: 32,3%
+    Grupo 3: Contrato diferente de mes-a-mes, Idade > 64 y número de referidos < 2  # churn: 8,7%
+    Grupo 4: Contrato diferente a mes-a-mes e antiguidade em meses < 40             # churn: 1,6%
+    Grupo 5: Cliente sem Suporte técnico Premium                                    # churn: 8,3%
+ 
+```
+CREATE OR REPLACE TABLE perda-de-clientes.churn.segmento_risco AS(
+WITH
+  tabela AS (
+  SELECT
+    *,
+    CASE
+    WHEN Age>64 and Contract ='Month-to-Month' THEN 'G1'
+    WHEN Age>64 and Contract <>"Month-to-Month" and Number_of_Referrals<2 Then "G3"
+    WHEN Age<64 and Number_of_Referrals<2 THEN 'G2'
+    WHEN Contract <> "Month-to-Month" and Tenure_in_Months<40 THEN "G4"
+    WHEN  Premium_Tech_Support = false Then "G5"
+    ELSE "Sem Grupo"
+    END
+
+    AS range_riskGroups
+  FROM
+    `perda-de-clientes.churn.master_view_limpa` )
+SELECT
+Customer_ID,
+range_riskGroups
+Churn_Label
+From tabela
+)
+```  
+## 4 Segmentar Cliente de alto valor
+## 5 Criando Dashboard
+
+
 
 [WIP]
 
