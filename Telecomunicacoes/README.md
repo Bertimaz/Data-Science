@@ -224,11 +224,11 @@ FROM
 ```
 ## 3 Segmentar Grupos de Risco
 O churn rate total é 26,7% e pela exploração dos dados chegamos a seguinte segmentação de risco:
-- Grupo 1: Contrato mes-a-mes e idade > 64                                         churn: 82,2%
-- Grupo 2: Idade < 64 e número de referências < 2                                  churn: 32,3%
-- Grupo 3: Contrato diferente de mes-a-mes, Idade > 64 y número de referidos < 2   churn: 8,7%
-- Grupo 4: Contrato diferente a mes-a-mes e antiguidade em meses < 40              churn: 1,6%
-- Grupo 5: Cliente sem Suporte técnico Premium                                     churn: 8,3%
+- Grupo 1: Contrato mes-a-mes e idade > 64 -                                         churn: 82,2%
+- Grupo 2: Idade < 64 e número de referências < 2 -                                  churn: 32,3%
+- Grupo 3: Contrato diferente de mes-a-mes, Idade > 64 y número de referidos < 2 -   churn: 8,7%
+- Grupo 4: Contrato diferente a mes-a-mes e antiguidade em meses < 40 -               churn: 1,6%
+- Grupo 5: Cliente sem Suporte técnico Premium -                                      churn: 8,3%
  
 ```
 CREATE OR REPLACE TABLE perda-de-clientes.churn.segmento_risco AS(
