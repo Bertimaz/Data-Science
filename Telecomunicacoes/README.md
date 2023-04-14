@@ -293,8 +293,7 @@ CREATE OR REPLACE TABLE
 ```
 
 ## 5 Dashboard
-
-
-
-[WIP]
-
+![Dashboard: Visao Geral](Telecomunicacoes/img/Telecom_DashBoard01.png)
+![Dashboard: Encerramentos](Telecomunicacoes/img/Telecom_DashBoard02.png)
+![Dashboard: Grupos de Risco](Telecomunicacoes/img/Telecom_DashBoard03.png)
+![Dashboard: Grupos de Risco ](Telecomunicacoes/img/Telecom_DashBoard04.png)
