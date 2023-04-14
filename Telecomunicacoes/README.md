@@ -225,7 +225,7 @@ FROM
 ## 3 Segmentar Grupos de Risco
 O churn rate total é 26,7% e pela exploração dos dados chegamos a seguinte segmentação de risco:
 - Grupo 1: Contrato mes-a-mes e idade > 64 -                                         churn: 82,2%
-- Grupo 2: Idade < 64 e número de referências < 2 -                                  churn: 32,3%
+- Grupo 2: Contrato mes-a-mes e Idade < 64 e número de referências < 2 -             churn: 45,6%
 - Grupo 3: Contrato diferente de mes-a-mes, Idade > 64 y número de referidos < 2 -   churn: 8,7%
 - Grupo 4: Contrato diferente a mes-a-mes e antiguidade em meses < 40 -               churn: 1,6%
 - Grupo 5: Cliente sem Suporte técnico Premium -                                      churn: 8,3%
@@ -255,8 +255,44 @@ Churn_Label
 From tabela
 )
 ```  
-## 4 Segmentar Cliente de alto valor
-## 5 Criando Dashboard
+## 4 Segmentar Clientes de alto valor
+Primeiro calcula-se o Tenure Médio para cada tipo de contrato:
+```
+CREATE OR REPLACE  TABLE `perda-de-clientes.churn.master_view_limpa` AS(
+    WITH base_tenure_prom AS (
+        SELECT Contract,AVG(Tenure_in_Months) AS media_tenure
+        FROM `perda-de-clientes.churn.master_view_limpa`
+        GROUP BY 1
+)
+SELECT a.*,
+        b.media_tenure
+FROM `perda-de-clientes.churn.master_view_limpa` as a
+LEFT JOIN base_tenure_prom as b
+ON a.Contract = b.Contract
+)
+```
+Calculando a receita total estimada para cada cliente (Estimated_Revenue) com base nos pagamentos mensais e no Tenure médio calculado no passo anterior
+```
+CREATE OR REPLACE TABLE perda-de-clientes.churn.master_view_limpa AS(
+Select * ,
+        media_tenure*Monthly_Charge as Estimated_Revenue
+FROM perda-de-clientes.churn.master_view_limpa
+)
+```
+Dividindo os clientes ativos em quartis de receita estimada por tipo de contrato:
+```
+CREATE OR REPLACE TABLE
+  perda-de-clientes.churn.quartil AS (
+  SELECT
+    Customer_ID,
+    NTILE(4) OVER(PARTITION BY Contract ORDER BY Estimated_Revenue ASC) AS quartil_estimado
+  FROM
+    perda-de-clientes.churn.master_view_limpa
+  WHERE
+    Churn_Value=0 )
+```
+
+## 5 Dashboard
 
 
 
