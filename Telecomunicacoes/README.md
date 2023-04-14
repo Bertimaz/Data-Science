@@ -293,7 +293,7 @@ CREATE OR REPLACE TABLE
 ```
 
 ## 5 Dashboard
-![Dashboard: Visao Geral](Telecomunicacoes/img/Telecom_DashBoard01.png)
-![Dashboard: Encerramentos](Telecomunicacoes/img/Telecom_DashBoard02.png)
-![Dashboard: Grupos de Risco](Telecomunicacoes/img/Telecom_DashBoard03.png)
-![Dashboard: Grupos de Risco ](Telecomunicacoes/img/Telecom_DashBoard04.png)
+![Dashboard: Visao Geral](https://github.com/Bertimaz/Data-Science/blob/cd4245c35a830036da9a2cc4f5555a2a51bdbb41/Telecomunicacoes/img/Telecom_DashBoard01.png)
+![Dashboard: Encerramentos](https://github.com/Bertimaz/Data-Science/blob/cd4245c35a830036da9a2cc4f5555a2a51bdbb41/Telecomunicacoes/img/Telecom_DashBoard02.png)
+![Dashboard: Grupos de Risco](https://github.com/Bertimaz/Data-Science/blob/cd4245c35a830036da9a2cc4f5555a2a51bdbb41/Telecomunicacoes/img/Telecom_DashBoard03.png)
+![Dashboard: Grupos de Risco ](https://github.com/Bertimaz/Data-Science/blob/cd4245c35a830036da9a2cc4f5555a2a51bdbb41/Telecomunicacoes/img/Telecom_DashBoard04.png)
