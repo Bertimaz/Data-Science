@@ -1,6 +1,6 @@
 # Data-Science
 
-Estudos de Ciência e Análise de Dados hands on, através de projetos de cursos da Alura, Google Developers, outros projetos criados por mim mesmo que consolidam os meus conhecimentos.
+Estudos de Ciência e Análise de Dados hands on, através de projetos de cursos da Alura, Google Developers, outros projetos ded autoria própria, que consolidam os meus conhecimentos.
 
 
 ## **Skill/Tools**:
