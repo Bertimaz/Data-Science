@@ -10,3 +10,6 @@ Com base nessa resposta, trazer a análise de quais seriam os próximos passos: 
 - Pandas
 - Statistics
 - Google Sheets
+
+
+Resolução no [notebook](https://github.com/Bertimaz/Data-Science/blob/0ba6d0c8820a239fe9e280843da101b1afbf97f6/Projeto-02-Retencao-de-Usuarios-em-StartUp/%20An%C3%A1lise_de_Reten%C3%A7%C3%A3o_de_Usu%C3%A1rios_em_Aplicativo.ipynb)
