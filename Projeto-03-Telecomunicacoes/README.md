@@ -1,8 +1,6 @@
 # O Desafio
 
-A sua empresa de telecomunicações onde você trabalha anunciou a aquisição da TELCO. TELCO é uma empresa jovem e com muito potencial, cujas filiais estão localizadas em 1.106 cidades do estado da Califórnia, Estados Unidos.
-
-O objetivo é avaliar desafios em termos de perdas de cliente da TELCO. Atualmente a principal hipótese é a concorrência acirradas, principalmente na região de San Diego e a solução proposta é investir em contratos de longo prazo.
+Como analista de uma empresa de telecomunicações, que anunciou a aquisição da TELCO, uma empresa jovem e com muito potencial, cujas filiais estão localizadas em 1.106 cidades do estado da Califórnia, Estados Unidos, avaliar os desafios em termos de perdas de cliente da Telco. Atualmente a principal hipótese é a concorrência acirradas, principalmente na região de San Diego e a solução proposta é investir em contratos de longo prazo.
 
 O desafio consiste em validar ou não essa hipótese, através da exploração do banco de dados e contrato atuais e passados.
 Obter  o Cluster de clientes de “Alto risco de abandono e de alto retorno financeiro".
@@ -125,7 +123,7 @@ UPDATE `perda-de-clientes.churn.master_view_limpa`
 SET Gender = 'Female'
 WHERE Gender = "F";
 ```
-## 2. Segmentação de Clientes:
+## 3. Segmentação de Clientes:
 Segmentação dos clientes por idade, por número de indicações, por número de dependentes, e por tempo de serviço.
 - Idade
 ```
@@ -222,7 +220,7 @@ Tenure_in_Months
 FROM
   tabela
 ```
-## 3 Segmentar Grupos de Risco
+## 4. Segmentar Grupos de Risco
 O churn rate total é 26,7% e pela exploração dos dados chegamos a seguinte segmentação de risco:
 - Grupo 1: Contrato mes-a-mes e idade > 64 -                                         churn: 82,2%
 - Grupo 2: Contrato mes-a-mes e Idade < 64 e número de referências < 2 -             churn: 45,6%
@@ -255,7 +253,7 @@ Churn_Label
 From tabela
 )
 ```  
-## 4 Segmentar Clientes de alto valor
+## 5. Segmentar Clientes de alto valor
 Primeiro calcula-se o Tenure Médio para cada tipo de contrato:
 ```
 CREATE OR REPLACE  TABLE `perda-de-clientes.churn.master_view_limpa` AS(
@@ -292,7 +290,7 @@ CREATE OR REPLACE TABLE
     Churn_Value=0 )
 ```
 
-## 5 Dashboard
+## 6. Dashboard
 ![Dashboard: Visao Geral](https://github.com/Bertimaz/Data-Science/blob/cd4245c35a830036da9a2cc4f5555a2a51bdbb41/Telecomunicacoes/img/Telecom_DashBoard01.png)
 ![Dashboard: Encerramentos](https://github.com/Bertimaz/Data-Science/blob/cd4245c35a830036da9a2cc4f5555a2a51bdbb41/Telecomunicacoes/img/Telecom_DashBoard02.png)
 ![Dashboard: Grupos de Risco](https://github.com/Bertimaz/Data-Science/blob/cd4245c35a830036da9a2cc4f5555a2a51bdbb41/Telecomunicacoes/img/Telecom_DashBoard03.png)
