@@ -10,3 +10,5 @@ What happened? In this project I want to analyze the economic incentives that dr
 - Pandas
 - Statistics
 - WebScraping with requests and Beautiful Soup
+
+Resolution is in the [notebook](https://github.com/Bertimaz/Data-Science/blob/52ed2a374e2b70df51cb9f88746466bc3b10c922/Projeto-01-The-Movie-Industry/Movie_Budget_Evolution.ipynb)
