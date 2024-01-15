@@ -1,10 +1,10 @@
-# Feature Engineering
-
-Preparo de dados para classificação de bons pagadores utilizando o Recall de um modelo KNN Classifier como parâmetro de qualidade do banco de dados criado.
+# Projeto 1 - Modelo de Classificação de Risco
 
 ## **Skill/Tools**:
-- Feature Engineering
-- Pandas
-- Numpy
-- MatPlotLib
+
+
 - Python
+- Pandas
+- Sci Kit Learn
+- Feature Engineering (Data Inputation,Scalling, Dumetização, Redução de Dimensaionlidade, Oversampling)
+- Modelos de Classificação (KNN,Random Forest,NB, Gradient Boosting)
