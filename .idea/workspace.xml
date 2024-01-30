@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8822a179-22a4-468a-a1ed-266ea6590f44" name="Changes" comment="Zerando pasta" />
+    <list default="true" id="8822a179-22a4-468a-a1ed-266ea6590f44" name="Changes" comment="Add Projeto 01">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,9 +25,14 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/alber/Área de Trabalho _ Notebook/Projetos - Dados/Data-Science"
+    "last_opened_file_path": "C:/Users/alber/Área de Trabalho _ Notebook/Projetos - Dados/Data-Science/Projeto-01-Feature-Engineering"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\alber\Área de Trabalho _ Notebook\Projetos - Dados\Data-Science\Projeto-01-Feature-Engineering" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -42,7 +49,28 @@
       <option name="project" value="LOCAL" />
       <updated>1705346525916</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add Projeto 01">
+      <created>1705347080898</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1705347080898</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add Projeto 01">
+      <created>1705353141302</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1705353141302</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add Projeto 01">
+      <created>1705353703306</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1705353703306</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -58,6 +86,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Zerando pasta" />
-    <option name="LAST_COMMIT_MESSAGE" value="Zerando pasta" />
+    <MESSAGE value="Add Projeto 01" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Projeto 01" />
   </component>
 </project>
